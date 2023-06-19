@@ -1,0 +1,24 @@
+            On your control nodes' security group
+inbound 6443* - for the api server used by ALL
+inbound 2379-2380 etcd server      used by etcd
+inbound 10250 kubelet api          control plane
+inbound 10251 kube-scheduler       self
+inbound 10252 kube-controller      self
+               On worker nodes
+inbound 10250 kubelet api                       control plane
+inbound 30000-32767 nodeports services          all
+
+
+
+
+
+
+                          Remaining steps for kubernetes installation after shell scripts
+Do you want to change your nodes/hosts name??
+firstly run the common.sh on all nodes
+secondly run the master.sh on the master node =====> do you want to change the pods cidr range?
+Confirm successful kubectl installation by running kubectl get pod -n kube-system
+kubeadm token create --print-join-command to regenerate token and put in worker nodes
+Run kubectl get nodes to verify cluster is formed
+kubectl label node worker-node01  node-role.kubernetes.io/worker=worker =================> to label nodes
+Setup Kubernetes Metrics Server by applying the metric server manifest
