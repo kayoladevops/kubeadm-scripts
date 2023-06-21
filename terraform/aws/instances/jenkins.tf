@@ -1,4 +1,4 @@
-resource "aws_instance" "ansi-control-node" {
+resource "aws_instance" "jenkins-docker-inst" {
   ami               = "ami-053b0d53c279acc90"
   instance_type     = "t2.medium"
   key_name          = "docker"
@@ -15,14 +15,14 @@ resource "aws_instance" "ansi-control-node" {
 }
 
 resource "aws_ec2_instance_state" "running" {
-  instance_id = aws_instance.ansi-control-node.id
+  instance_id = aws_instance.jenkins-docker-inst.id
   state       = "running"
 }
 
 output "private-ip" {
-  value = aws_instance.ansi-control-node.private_ip
+  value = aws_instance.jenkins-docker-inst.private_ip
 }
 
 output "public-ip" {
-  value = aws_instance.ansi-control-node.public_ip
+  value = aws_instance.ajenkins-docker-inst.public_ip
 }
