@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-west-2"
+  region = "us-east-1"
 }
 
 variable "instance_name" {
@@ -9,22 +9,22 @@ variable "instance_name" {
 
 variable "ami_id" {
   type    = string
-  default = "ami-0735c191cf914754d"
+  default = "ami-053b0d53c279acc90"
 }
 
 variable "instance_type" {
   type    = string
-  default = "t2.small"
+  default = "t2.medium"
 }
 
 variable "key_name" {
   type    = string
-  default = "techiescamp"
+  default = "kubes-key"
 }
 
 variable "security_group_ids" {
   type    = list(string)
-  default = ["sg-01ce819e8d65269f0"]
+  default = ["sg-086c47e86a17bf819"]
 }
 
 variable "instance_count" {
