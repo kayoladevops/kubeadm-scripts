@@ -5,8 +5,8 @@ resource "aws_instance" "jenkins-docker-inst" {
   subnet_id         = "subnet-01ad6bfee6d3be7d1"
   security_groups   = ["sg-0da8a8fd8b6fafe62"]
   availability_zone = "us-east-1a"
-  instance_name  = "jenkins-docker-inst"
   
+
 
   tags = {
     Name = "jenkins.docker"
@@ -24,5 +24,5 @@ output "private-ip" {
 }
 
 output "public-ip" {
-  value = aws_instance.ajenkins-docker-inst.public_ip
+  value = aws_instance.jenkins-docker-inst.public_ip
 }
